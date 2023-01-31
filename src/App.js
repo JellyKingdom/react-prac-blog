@@ -1,7 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 let post = "강남 우동 맛집";
+let [a,b] = useState('temp_title');
 
 function App() {
     return (
