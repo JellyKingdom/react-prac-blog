@@ -9,7 +9,7 @@ function App() {
     return (
         <div className="App">
             <div className="black-nav">
-                <h4>블로그임</h4>
+                <h4>React Blog</h4>
             </div>
             <div className="list">
                 <h4>{Blog_title[0]}</h4>
