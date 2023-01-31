@@ -8,13 +8,17 @@ function App() {
     let [Blog_title, b] = useState(['첫번째 제목입니다.','두번째 제목입니다.','세번째도 잘 들어가나요?']);
     let [likes, setLikes] = useState(0);
 
+    function likes_func(){
+      console.log(1);
+    }
+
     return (
         <div className="App">
             <div className="black-nav">
                 <h4>React Blog</h4>
             </div>
             <div className="list">
-                <h4>{Blog_title[0]} <span>좋아요🫶</span> {likes} </h4>
+                <h4>{Blog_title[0]} <span onClick={likes_func}>좋아요🫶</span> {likes} </h4>
                 <p>1월 31일 발행</p>
             </div>
             <div className="list">
