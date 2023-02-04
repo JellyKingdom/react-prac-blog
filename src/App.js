@@ -39,45 +39,6 @@ function App() {
             >
                 정렬!
             </button>
-            {/* <div className="list">
-                <h4>
-                    {BlogTitle[0]}{" "}
-                    <span
-                        onClick={() => {
-                            setLikes(likes + 1);
-                        }}
-                    >
-                        <span
-                            onClick={() => {
-                                if (heart == "♡") {
-                                    setHeart("♥");
-                                } else {
-                                    setHeart("♡");
-                                }
-                            }}
-                        >
-                            {heart}
-                        </span>
-                    </span>{" "}
-                    {likes}{" "}
-                </h4>
-                <p>1월 31일 발행</p>
-            </div>
-            <div className="list">
-                <h4>{BlogTitle[1]}</h4>
-                <p>1월 31일 발행</p>
-            </div>
-            <div className="list">
-                <h4
-                    onClick={() => {
-                        modal == true ? setModal(false) : setModal(true);
-                    }}
-                >
-                    {BlogTitle[2]}
-                </h4>
-                <p>1월 31일 발행</p>
-            </div> */}
-
             {BlogTitle.map(function (el,i) {
                 return (
                     <>
