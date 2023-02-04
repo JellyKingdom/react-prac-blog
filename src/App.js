@@ -12,7 +12,6 @@ function App() {
     ]);
     let [likes, setLikes] = useState(0);
     let [modal, setModal] = useState(false);
-
     let [heart, setHeart] = useState("♡");
 
     return (
@@ -69,14 +68,25 @@ function App() {
                 <p>1월 31일 발행</p>
             </div>
             <div className="list">
-                <h4 onClick={() => {
-                    modal == true ? setModal(false) : setModal(true);
-                }}>{BlogTitle[2]}</h4>
+                <h4
+                    onClick={() => {
+                        modal == true ? setModal(false) : setModal(true);
+                    }}
+                >
+                    {BlogTitle[2]}
+                </h4>
                 <p>1월 31일 발행</p>
             </div>
 
+            {[1, 2, 3].map(function () {
+                return (
+                    <div className="list">
+                        <h4>{BlogTitle[1]}</h4>
+                        <p>1월 31일 발행</p>
+                    </div>
+                );
+            })}
             {modal == true ? <Modal /> : null}
-
         </div>
     );
 }
