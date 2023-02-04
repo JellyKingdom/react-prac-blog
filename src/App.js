@@ -39,6 +39,13 @@ function App() {
                 <h4>{BlogTitle[2]}</h4>
                 <p>1월 31일 발행</p>
             </div>
+
+
+            <div className="modal">
+                <h4>제목</h4>
+                <p>날짜</p>
+                <p>상세내용</p>
+            </div>
         </div>
     );
 }
