@@ -54,10 +54,12 @@ function App() {
                 );
             })}
 
-            {modal == true ? <Modal /> : null}
+            {modal == true ? <Modal 작명={state이름}/> : null} 
         </div>
     );
 }
+//부모 -> 자식 state 전송하는 법
+//1. <자식 컴포넌트 작명={state이름}>
 
 function Modal() {
     //컴포넌트 작명은 첫글자 대문자
