@@ -13,6 +13,8 @@ function App() {
     let [modal, setModal] = useState(false);
     let [heart, setHeart] = useState("♡");
 
+    let [title, setTitle] = useState(0);
+
     return (
         <div className="App">
             <div className="black-nav">
@@ -42,7 +44,7 @@ function App() {
                 return (
                     <>
                     <div className="list" key={i}>
-                        <h4 onClick={() => { setModal(!modal)}}>{BlogTitle[i]}{" "}
+                        <h4 onClick={() => { setModal(!modal); setTitle(i)}}>{BlogTitle[i]}{" "}
                             <span onClick={() => {setLikes(likes + 1);}}>
                                 <span onClick={() => { if (heart == "♡") {setHeart("♥");} else {setHeart("♡");}}}>{heart}</span>
                             </span>{" "}{likes}{" "}
@@ -53,7 +55,7 @@ function App() {
                 );
             })}
 
-            {modal == true ? <Modal setBlogTitle={setBlogTitle} color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
+            {modal == true ? <Modal title={title} setBlogTitle={setBlogTitle} color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
         </div>
     );
 }
@@ -65,7 +67,7 @@ function Modal(props) {
     return (
         <>
             <div className="modal" style={{background: props.color}}>
-                <h4>{props.BlogTitle[0]}</h4>
+                <h4>{props.BlogTitle[props.title]}</h4>
                 <p>날짜</p>
                 <p>상세내용</p>
                 <button onClick={()=>{
