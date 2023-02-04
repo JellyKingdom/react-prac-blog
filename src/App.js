@@ -4,7 +4,6 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-    let post = "강남 우동 맛집";
     let [BlogTitle, setBlogTitle] = useState([
         "첫번째 제목입니다.",
         "두번째 제목입니다.",
@@ -33,7 +32,7 @@ function App() {
             <button
                 onClick={() => {
                     let copy = [...BlogTitle];
-                    copy = copy.sort();
+                    copy = copy.sort(); 
                     setBlogTitle(copy);
                 }}
             >
@@ -54,7 +53,7 @@ function App() {
                 );
             })}
 
-            {modal == true ? <Modal BlogTitle={BlogTitle}/> : null} 
+            {modal == true ? <Modal color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
         </div>
     );
 }
@@ -65,9 +64,7 @@ function Modal(props) {
     //컴포넌트 작명은 첫글자 대문자
     return (
         <>
-            {" "}
-            {/* fragment 문법 <></> */}
-            <div className="modal">
+            <div className="modal" style={{background: props.color}}>
                 <h4>{props.BlogTitle}</h4>
                 <p>날짜</p>
                 <p>상세내용</p>
