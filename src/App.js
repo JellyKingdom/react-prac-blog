@@ -14,6 +14,7 @@ function App() {
     let [heart, setHeart] = useState("♡");
 
     let [title, setTitle] = useState(0);
+    let [inputVal, setInputVal] = useState('');
 
     return (
         <div className="App">
@@ -51,11 +52,15 @@ function App() {
                         </h4>
                         <p>1월 31일 발행</p>
                     </div>
+
+                    
                     </>
                 );
             })}
 
-            <input type="text" onChange={(e) => {console.log(e.target.value);}}/>
+            <input type="text" onChange={(e) => {
+                setInputVal(e.target.value);
+                console.log(inputVal);}}/>
 
             {modal == true ? <Modal title={title} setBlogTitle={setBlogTitle} color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
         </div>
