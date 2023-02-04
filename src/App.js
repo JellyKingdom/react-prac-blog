@@ -54,21 +54,21 @@ function App() {
                 );
             })}
 
-            {modal == true ? <Modal 작명={state이름}/> : null} 
+            {modal == true ? <Modal BlogTitle={BlogTitle}/> : null} 
         </div>
     );
 }
 //부모 -> 자식 state 전송하는 법
 //1. <자식 컴포넌트 작명={state이름}>
 
-function Modal() {
+function Modal(props) {
     //컴포넌트 작명은 첫글자 대문자
     return (
         <>
             {" "}
             {/* fragment 문법 <></> */}
             <div className="modal">
-                <h4>제목</h4>
+                <h4>{props.BlogTitle}</h4>
                 <p>날짜</p>
                 <p>상세내용</p>
             </div>
