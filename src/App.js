@@ -53,7 +53,8 @@ function App() {
                         <p>1월 31일 발행</p>
                         <button onClick={() => {
                             let copy = [...BlogTitle];
-                            copy.splice(copy.indexOf(copy[i]),1);
+                            // copy.splice(copy.indexOf(copy[i]),1);
+                            copy.splice(i,1);
                             setBlogTitle(copy);
                         }}>삭제</button>
                     </div>
