@@ -41,13 +41,19 @@ function App() {
             </div>
 
 
-            <div className="modal">
-                <h4>제목</h4>
-                <p>날짜</p>
-                <p>상세내용</p>
-            </div>
+            <Modal />
         </div>
     );
+}
+
+function Modal(){   //컴포넌트 작명은 첫글자 대문자
+    return(
+        <div className="modal">
+            <h4>제목</h4>
+            <p>날짜</p>
+            <p>상세내용</p>
+        </div>
+    )
 }
 
 export default App;
