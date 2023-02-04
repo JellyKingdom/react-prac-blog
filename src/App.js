@@ -53,7 +53,7 @@ function App() {
                 );
             })}
 
-            {modal == true ? <Modal color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
+            {modal == true ? <Modal setBlogTitle={setBlogTitle} color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
         </div>
     );
 }
@@ -65,9 +65,14 @@ function Modal(props) {
     return (
         <>
             <div className="modal" style={{background: props.color}}>
-                <h4>{props.BlogTitle}</h4>
+                <h4>{props.BlogTitle[0]}</h4>
                 <p>날짜</p>
                 <p>상세내용</p>
+                <button onClick={()=>{
+                    let copy = [...props.BlogTitle];
+                    copy[0] = '헤헤 첫번째 제목 또 바꿈!';
+                    props.setBlogTitle(copy);
+                }}>글수정</button>
             </div>
         </>
     );
