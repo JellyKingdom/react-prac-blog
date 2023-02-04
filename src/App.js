@@ -4,7 +4,6 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-    let post = "강남 우동 맛집";
     let [BlogTitle, setBlogTitle] = useState([
         "첫번째 제목입니다.",
         "두번째 제목입니다.",
@@ -33,7 +32,7 @@ function App() {
             <button
                 onClick={() => {
                     let copy = [...BlogTitle];
-                    copy = copy.sort();
+                    copy = copy.sort(); 
                     setBlogTitle(copy);
                 }}
             >
@@ -54,21 +53,26 @@ function App() {
                 );
             })}
 
-            {modal == true ? <Modal /> : null}
+            {modal == true ? <Modal setBlogTitle={setBlogTitle} color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
         </div>
     );
 }
+//부모 -> 자식 state 전송하는 법
+//1. <자식 컴포넌트 작명={state이름}>
 
-function Modal() {
+function Modal(props) {
     //컴포넌트 작명은 첫글자 대문자
     return (
         <>
-            {" "}
-            {/* fragment 문법 <></> */}
-            <div className="modal">
-                <h4>제목</h4>
+            <div className="modal" style={{background: props.color}}>
+                <h4>{props.BlogTitle[0]}</h4>
                 <p>날짜</p>
                 <p>상세내용</p>
+                <button onClick={()=>{
+                    let copy = [...props.BlogTitle];
+                    copy[0] = '헤헤 첫번째 제목 또 바꿈!';
+                    props.setBlogTitle(copy);
+                }}>글수정</button>
             </div>
         </>
     );
