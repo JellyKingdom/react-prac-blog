@@ -39,7 +39,7 @@ function App() {
             >
                 정렬!
             </button>
-            <div className="list">
+            {/* <div className="list">
                 <h4>
                     {BlogTitle[0]}{" "}
                     <span
@@ -76,12 +76,12 @@ function App() {
                     {BlogTitle[2]}
                 </h4>
                 <p>1월 31일 발행</p>
-            </div>
+            </div> */}
 
-            {[1, 2, 3].map(function () {
+            {BlogTitle.map(function (el,i) {
                 return (
                     <div className="list">
-                        <h4>{BlogTitle[1]}</h4>
+                        <h4>{BlogTitle[i]}</h4>
                         <p>1월 31일 발행</p>
                     </div>
                 );
