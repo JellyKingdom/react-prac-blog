@@ -14,6 +14,7 @@ function App() {
     let [heart, setHeart] = useState("♡");
 
     let [title, setTitle] = useState(0);
+    let [inputVal, setInputVal] = useState('');
 
     return (
         <div className="App">
@@ -45,15 +46,32 @@ function App() {
                     <>
                     <div className="list" key={i}>
                         <h4 onClick={() => { setModal(!modal); setTitle(i)}}>{BlogTitle[i]}{" "}
-                            <span onClick={() => {setLikes(likes + 1);}}>
+                            <span onClick={(e) => {e.stopPropagation(); setLikes(likes + 1);}}>
                                 <span onClick={() => { if (heart == "♡") {setHeart("♥");} else {setHeart("♡");}}}>{heart}</span>
                             </span>{" "}{likes}{" "}
                         </h4>
                         <p>1월 31일 발행</p>
+                        <button onClick={() => {
+                            let copy = [...BlogTitle];
+                            // copy.splice(copy.indexOf(copy[i]),1);
+                            copy.splice(i,1);
+                            setBlogTitle(copy);
+                        }}>삭제</button>
                     </div>
+
+                    
                     </>
                 );
             })}
+
+            <input type="text" onChange={(e) => {
+                setInputVal(e.target.value);
+                }}/>
+            <button onClick={() =>{
+                let copy = [...BlogTitle];
+                copy.push(inputVal);
+                setBlogTitle(copy);
+            }}>글 발행</button>
 
             {modal == true ? <Modal title={title} setBlogTitle={setBlogTitle} color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
         </div>
