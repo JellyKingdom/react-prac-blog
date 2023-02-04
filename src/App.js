@@ -45,7 +45,7 @@ function App() {
                     <>
                     <div className="list" key={i}>
                         <h4 onClick={() => { setModal(!modal); setTitle(i)}}>{BlogTitle[i]}{" "}
-                            <span onClick={() => {setLikes(likes + 1);}}>
+                            <span onClick={(e) => {e.stopPropagation(); setLikes(likes + 1);}}>
                                 <span onClick={() => { if (heart == "♡") {setHeart("♥");} else {setHeart("♡");}}}>{heart}</span>
                             </span>{" "}{likes}{" "}
                         </h4>
@@ -55,7 +55,7 @@ function App() {
                 );
             })}
 
-            <input type="text" onChange={() => {console.log(1);}}/>
+            <input type="text" onChange={(e) => {console.log(e.target.value);}}/>
 
             {modal == true ? <Modal title={title} setBlogTitle={setBlogTitle} color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
         </div>
