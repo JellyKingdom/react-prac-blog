@@ -55,6 +55,8 @@ function App() {
                 );
             })}
 
+            <input type="text" onChange={() => {console.log(1);}}/>
+
             {modal == true ? <Modal title={title} setBlogTitle={setBlogTitle} color={'skyblue'} BlogTitle={BlogTitle}/> : null} 
         </div>
     );
